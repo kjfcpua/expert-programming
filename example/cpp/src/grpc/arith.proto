@@ -1,0 +1,19 @@
+// protoc -I . --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto
+// protoc -I . --cpp_out=. *.proto
+
+syntax = "proto3";
+
+package proto;
+
+message MultiplyRequest {
+	uint32 x = 1;
+	uint32 y = 2;
+}
+
+message MultiplyResponse {
+	uint32 result = 1;
+}
+
+service Arith {
+	rpc Multiply (MultiplyRequest) returns (MultiplyResponse);
+}
