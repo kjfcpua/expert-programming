@@ -1,0 +1,19 @@
+// need use plugins=grpc
+// protoc -I . --go_out=plugins=grpc:. *.proto
+
+syntax = "proto3";
+
+package proto;
+
+message MultiplyRequest {
+	uint32 x = 1;
+	uint32 y = 2;
+}
+
+message MultiplyResponse {
+	uint32 result = 1;
+}
+
+service Arith {
+	rpc Multiply (MultiplyRequest) returns (MultiplyResponse);
+}
