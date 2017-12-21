@@ -1,0 +1,18 @@
+registry:
+  restart: always
+  image: registry:2.4.1
+  ports:
+    - 80:5000
+  volumes:
+    - ./auth:/auth
+  environment:
+    - REGISTRY_AUTH=htpasswd
+    - REGISTRY_AUTH_HTPASSWD_REALM=basic-realm
+    - REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd
+    - REGISTRY_STORAGE_REDIRECT_DISABLE=true
+    - REGISTRY_STORAGE=s3
+    - REGISTRY_STORAGE_S3_ACCESSKEY=918e7e66aca147e6a0adc6e9ee0acd31
+    - REGISTRY_STORAGE_S3_SECRETKEY=1d377b2e143642cf896c30b7a062370e
+    - REGISTRY_STORAGE_S3_REGION=BJ
+    - REGISTRY_STORAGE_S3_REGIONENDPOINT=s3.bj.bcebos.com
+    - REGISTRY_STORAGE_S3_BUCKET=baidu-docker-registry

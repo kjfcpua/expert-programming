@@ -1,0 +1,17 @@
+registry:
+  restart: always
+  image: baidubce/registry:latest
+  ports:
+    - 80:5000
+  volumes:
+    - ./auth:/auth
+  environment:
+    - REGISTRY_AUTH=htpasswd
+    - REGISTRY_AUTH_HTPASSWD_REALM=basic-realm
+    - REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd
+    - REGISTRY_STORAGE=bos
+    - REGISTRY_STORAGE_BOS_ACCESSKEYID=918e7e66aca147e6a0adc6e9ee0acd31
+    - REGISTRY_STORAGE_BOS_SECRETACCESSKEY=1d377b2e143642cf896c30b7a062370e
+    - REGISTRY_STORAGE_BOS_REGION=bj
+    - REGISTRY_STORAGE_BOS_ENDPOINT=bj.bcebos.com
+    - REGISTRY_STORAGE_BOS_BUCKET=baidu-docker-registry
