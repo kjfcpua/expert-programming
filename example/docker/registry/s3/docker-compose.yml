@@ -1,14 +1,9 @@
 registry:
   restart: always
-  image: registry:2.4.1
+  image: baidubce/registry:latest
   ports:
     - 80:5000
-  volumes:
-    - ./auth:/auth
   environment:
-    - REGISTRY_AUTH=htpasswd
-    - REGISTRY_AUTH_HTPASSWD_REALM=basic-realm
-    - REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd
     - REGISTRY_STORAGE_REDIRECT_DISABLE=true
     - REGISTRY_STORAGE=s3
     - REGISTRY_STORAGE_S3_ACCESSKEY=918e7e66aca147e6a0adc6e9ee0acd31

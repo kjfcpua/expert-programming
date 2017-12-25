@@ -3,12 +3,7 @@ registry:
   image: registry:2.4.1
   ports:
     - 80:5000
-  volumes:
-    - ./auth:/auth
   environment:
-    - REGISTRY_AUTH=htpasswd
-    - REGISTRY_AUTH_HTPASSWD_REALM=basic-realm
-    - REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd
     - REGISTRY_STORAGE=oss
     - REGISTRY_STORAGE_OSS_ACCESSKEYID=LTAIpnNdl1IfHREq
     - REGISTRY_STORAGE_OSS_ACCESSKEYSECRET=DjIunY41OcKjkJfd5A1U7Ms1gBMaGK
