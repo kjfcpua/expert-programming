@@ -18,6 +18,10 @@ docker image list
 docker image list | awk 'FNR>1{print $3}' | xargs -I{} docker image rm {}
 # rm all <none> image
 docker image list | grep "<none>" | awk 'FNR>1{print $3}' | xargs -I{} docker image rm {}
+# save to disk
+docker save -o ${path} ${image_id}
+# load from disk
+docker load -i ${path}
 ```
 
 #### containter
