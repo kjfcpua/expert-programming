@@ -54,8 +54,8 @@ git review -t ${topic}
 #### commit to gerrit
 ```shell
 git branch -a
-git checkout -b brch remotes/origin/v3.0.x
+git checkout -b brch remotes/origin/${branch}
 git review -d ${change-id}
 git cherry-pick ${commit}
-git review -t san-siro v3.0.x
+git review -t ${topic} ${branch}
 ```
