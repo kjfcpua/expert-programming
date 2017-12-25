@@ -122,6 +122,14 @@ eval $(docker-machine env)
 docker info # check it env
 ```
 
+### ref
+#### curl
+```shell
+curl -XGET ${host}/v2/_catalog # get all images
+curl -XGET ${host}/v2/${image}/tags/list # get image's tags
+curl -XGET ${host}/v2/${image}/manifests/${tag} # get tag's manifests
+```
+
 ## FAQ
 
 ### RequestTimeTooSkewed
