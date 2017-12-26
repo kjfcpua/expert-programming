@@ -32,8 +32,13 @@ func ParseISO8601Date(time_string string) (time.Time, error) {
     return time.Parse(ISO8601Format, time_string)
 }
 
+func GetGMTime() string {
+    return time.Now().UTC().Format(RFC822Format)
+}
+
 func main() {
 	fmt.Println("NowUTCSeconds: ", NowUTCSeconds())
 	fmt.Println("NowUTCSeconds: ", FormatRFC822Date(NowUTCSeconds()))
-	fmt.Println("NowUTCSeconds: ", FormatISO8601Date(NowUTCSeconds()))
+    fmt.Println("NowUTCSeconds: ", FormatISO8601Date(NowUTCSeconds()))
+    fmt.Println("NowUTCSeconds: ", GetGMTime())
 }
