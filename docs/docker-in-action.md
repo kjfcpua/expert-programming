@@ -145,7 +145,7 @@ docker run -it centos /bin/bash
 date '+%s'
 ```
 如果容器中的date与宿主的date不相同，则必然会导致客户端时间与服务器时间不相同。
-最常见的原因是docker默认machine driver HyperKit的问题，如果driver是HyperKit，则无法通过外部参数设置容器的时间。
+最常见的原因是docker默认machine driver HyperKit可能会出现容器时间异常，且无法通过外部参数设置容器的时间。
 
 ```shell
 # add virtualbox machine
